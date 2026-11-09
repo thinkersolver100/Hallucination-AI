@@ -1,0 +1,27 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+
+# Node (used from Phase 6)
+node_modules/
+.next/
+coverage/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+
+# Experiment outputs
+runs/*
+!runs/.gitkeep
+
+# OS / editor
+.DS_Store
+.idea/
