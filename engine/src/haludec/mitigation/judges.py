@@ -82,8 +82,9 @@ def build_judge_prompt(query: str, response1: str, response2: str) -> str:
         f"<query>\n{_sanitize(query)}\n</query>\n\n"
         f"<response1>\n{_sanitize(response1)}\n</response1>\n\n"
         f"<response2>\n{_sanitize(response2)}\n</response2>"
-       
     )
+
+
 # def build_judge_prompt(query: str, response1: str, response2: str) -> str:
 #     return (
 #         f"<query>\n{query}\n</query>\n\n"

@@ -135,8 +135,6 @@ def build_report(
     )
 
 
-
-
 def format_report(report: Report) -> str:
     lines = [
         f"questions evaluated: {report.n_questions}    failed items: {report.n_failures}",

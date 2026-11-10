@@ -10,6 +10,7 @@ its 25% guess odds it abstains instead. From these rules the expected outcomes a
 
 which reproduces the qualitative findings of Kalai et al. (Nature, 2026).
 """
+
 import json
 import random
 import re
