@@ -25,3 +25,6 @@ runs/*
 # OS / editor
 .DS_Store
 .idea/
+
+# Downloaded datasets (re-downloadable)
+datasets/raw/
