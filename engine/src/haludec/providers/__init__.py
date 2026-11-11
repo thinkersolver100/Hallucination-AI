@@ -12,6 +12,7 @@ from haludec.providers.base import (
 from haludec.providers.cache import CachingProvider
 from haludec.providers.cost import Pricing, compute_cost
 from haludec.providers.fake import FakeProvider
+from haludec.providers.groq import GroqProvider
 from haludec.providers.openrouter import OpenRouterProvider
 from haludec.providers.retry import RetryingProvider, RetryPolicy
 from haludec.providers.tracking import CostTracker, TrackingProvider
@@ -23,6 +24,7 @@ __all__ = [
     "FakeProvider",
     "GenRequest",
     "GenResponse",
+    "GroqProvider",
     "OpenRouterProvider",
     "Pricing",
     "Provider",

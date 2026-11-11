@@ -28,3 +28,7 @@ runs/*
 
 # Downloaded datasets (re-downloadable)
 datasets/raw/
+
+# Local engine config and dev database (Phase 6)
+engine/pricing.json
+api/.mongo-data/

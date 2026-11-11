@@ -44,6 +44,8 @@ class ExperimentSettings(BaseModel):
     max_tokens: int = Field(default=1024, gt=0)
     judge_max_tokens: int = Field(default=256, gt=0)
     concurrency: int = Field(default=8, ge=1)
+    system_prompt: str | None = None  # agent context, e.g. policies
+    grader_version: str = GRADER_PROMPT_VERSION
 
     @field_validator("thresholds")
     @classmethod
@@ -69,6 +71,10 @@ class CaseFailureError(Exception):
         self.stage = stage
 
 
+def _prompt_versions(settings: ExperimentSettings) -> str:
+    return f"{CONSISTENCY_PROMPT_VERSION}+{SELECTION_PROMPT_VERSION}+{settings.grader_version}"
+
+
 async def _generate_pair(
     provider: Provider, settings: ExperimentSettings, prompt: str
 ) -> list[GenResponse]:
@@ -76,6 +82,7 @@ async def _generate_pair(
         GenRequest(
             model=settings.model,
             prompt=prompt,
+            system=settings.system_prompt,
             temperature=settings.temperature,
             max_tokens=settings.max_tokens,
             sample_index=k,
@@ -125,7 +132,7 @@ def _record(
         threshold=threshold,
         sample_index=sample_index,
         model_id=settings.model,
-        prompt_version=PROMPT_VERSIONS,
+        prompt_version=_prompt_versions(settings),
         rubric_version=rubric_version,
         response_text=text,
         label=label,

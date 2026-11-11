@@ -1,0 +1,4 @@
+{
+  "REPLACE-WITH/generator-model-id": { "input_per_mtok": 0.0, "output_per_mtok": 0.0 },
+  "REPLACE-WITH/grader-model-id": { "input_per_mtok": 0.0, "output_per_mtok": 0.0 }
+}
