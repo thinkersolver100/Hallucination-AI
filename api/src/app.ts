@@ -6,6 +6,7 @@ import type { EngineClient } from './engine/client.js';
 import { authRouter, type AuthLimiters } from './http/routes/auth.js';
 import { datasetsRouter } from './http/routes/datasets.js';
 import { experimentsRouter } from './http/routes/experiments.js';
+import { metaRouter } from './http/routes/meta.js';
 import {
   authenticate,
   clientIp,
@@ -59,6 +60,7 @@ export function createApp(deps: AppDeps): Express {
   const requireLogin = authenticate(store, now);
   app.use('/datasets', requireLogin, datasetsRouter({ store, now }));
   app.use('/experiments', requireLogin, experimentsRouter({ config, store, engine, runner, now }));
+  app.use('/meta', requireLogin, metaRouter({ config, engine }));
 
   app.use(notFoundHandler);
   app.use(errorHandler(log));
